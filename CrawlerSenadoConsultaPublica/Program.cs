@@ -32,9 +32,11 @@ namespace CrawlerSenadoConsultaPublica
             var aFavor = dom.Select(".bloco-result-votos > span")[0].InnerHTML;
             var contra = dom.Select(".bloco-result-votos > span")[1].InnerHTML;
             var contabilizacao = HttpUtility.HtmlDecode(dom.Select("#msg-contabilizacao-voto").Html());
+            var dataProcessada = contabilizacao.Substring(19, 10);
+            var horaProcessada = contabilizacao.Substring(30, 8);
 
             var dataAtual = DateTime.Now;
-            var textoLinha = string.Format("[{0}]\t{1}\t{2}\t{3}", dataAtual.ToString("s"), aFavor, contra, contabilizacao);
+            var textoLinha = string.Format("{0}\t{1}\t{2}\t{3}\t{4} {5}", dataAtual.ToString("s"), aFavor, contra, contabilizacao, dataProcessada, horaProcessada);
             Console.WriteLine("Escrevendo {0}", textoLinha);
             File.AppendAllText(string.Format("ConsultaPublica{0}.txt", id), textoLinha + Environment.NewLine);
         }
