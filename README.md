@@ -1,6 +1,17 @@
 # CrawlerSenadoConsultaPublica
 Crawler de consultas públicas do senado
 
+Como eu estou gerando o gráfico em
+https://live.amcharts.com/jliZG
+
+* Pego os três primeiros campos e separo em um arquivo
+* Uso https://shancarter.github.io/mr-data-converter/ para converter para JSON
+* Uso https://live.amcharts.com para gerar o gráfico a partir da fonte
+
+Estou vendo se posso gerar o gráfico dinamicamente (por enquanto estou carregando o JSON manualmente)
+
+===
+
 Este é um crawler simples que consulta o site de Consultas Públicas do senado por votos a favor ou contra um projeto e imprime em um arquivo texto que pode ser importado para o excel.
 
 Os campos, separados por tab, são os seguintes
